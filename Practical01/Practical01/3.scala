@@ -1,1 +1,0 @@
-def volume(radious : Double)= (4.0/3.0)*3.14*radious*radious
