@@ -11,7 +11,7 @@ def calculateSum(numbers: List[Int]): Int =
   var sum = 0
   var index = 0
   while (index < numbers.length)
-    if (numbers(index) % 2 != 0) then sum += numbers(index)
+    if (numbers(index) % 2 == 0) then sum += numbers(index)
     
     index += 1
 
