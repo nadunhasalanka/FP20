@@ -1,31 +1,23 @@
 import scala.io.StdIn.readLine
+// import scala.compiletime.ops.int
 
-var result = List[Int]()
+def getNumbers(): List[Int] =
+  println("Enter list of numbers seperated:")
+  val input = scala.io.StdIn.readLine()
+  val inputList = input.split("\\s+").toList.map(_.toInt)
+  return inputList
 
-def getNumber(): List[Int] =
-  while(true)
-    val input = readLine("Enter a number(to exit enter q): ")
-    if (input.toLowerCase() != "q")
-      val number = input.toInt
-      if (number % 2 != 0)
-        result = result :+ number
-    else {
-        println("exiting")
-        return result
-    }
-  return result
-
-
-def calculateNumbers(numbers: List[Int]):Int=
+def calculateSum(numbers: List[Int]): Int =
   var sum = 0
   var index = 0
-  while (index < numbers.length){
-    sum += numbers(index)
+  while (index < numbers.length)
+    if (numbers(index) % 2 != 0) then sum += numbers(index)
+    
     index += 1
-  }
-  return sum
 
-def main(args: Array[String]): Unit =
-    val result = getNumber()
-    val result1 = calculateNumbers(result)
-    printf("%d",result1)
+  return sum  
+
+@main def main()=
+  val result = getNumbers()
+  val result1 = calculateSum(result)
+  printf("%d",result1)

@@ -15,8 +15,8 @@ P3.2
 	
 	\\: This is an escape sequence in Scala strings to represent a literal backslash \.
 	s+: This is a regular expression pattern which means:
-	s: Matches any whitespace character (like spaces, tabs, newlines).
-	+: Matches one or more occurrences of the preceding pattern (s in this case).
+	 s: Matches any whitespace character (like spaces, tabs, newlines).
+	 +: Matches one or more occurrences of the preceding pattern (s in this case).
 	So, "\\s+" as a whole matches one or more whitespace characters. When input.split("\\s+") is called:
 
 	It splits the input string wherever one or more whitespace characters occur.
@@ -28,15 +28,27 @@ P3.3
    computes the mean (1.0 / 2), and prints the result formatted to two decimal places using printf.
 
 P3.4
-* 'import scala.io.StdIn.readLine' Imports the readLine function from scala.io.StdIn, which allows reading input from the console.
-* 'getNumber()' this function will run until q was enterd by the user and if a even number enterd,
-   that will goes to to a List called result(declared globaly).
-* 'if (input.toLowerCase() != "q")' this line converts input to lower case in case of 'Q' is entered.
-* 'val number = input.toInt' input is stored into a const variable called number and toInt function
-   convert string into a Integer value
-*  after checking if number is a even number that will add into result List
-*  then using indexes on the List sum of the even numbers is calculate and store into sum
-*  main function is display the sum
+* in this code segmentation getNumbers() function is the function that gets user inputs and store them
+* in inputList same thing happens like the 2nd code with spilt function
+	*The input variable is assumed to be a string that contains numbers separated by spaces.
+	*The split("\\s+") method splits this string into an array of substrings wherever 
+	 it finds one or more whitespace characters (\\s+ is a regular expression for one or more whitespace characters).
+	*For example, if input is "1 2 3 4 5", split("\\s+") will produce an array Array("1", "2", "3", "4", "5").
+* .toList will converts the array into a List. Lists are more idiomatic in scala and provide functional methods that arrays do 
+  not provide.
+	*Continuing the example, Array("1", "2", "3", "4", "5").toList produces List("1", "2", "3", "4", "5").
+* .map(_.toInt) 
+	*The map method applies a given function to each element of the list and returns a new list with the results.
+	*Here, the function _.toInt is shorthand for x => x.toInt, which converts each string element to an integer.
+	*So, List("1", "2", "3", "4", "5").map(_.toInt) produces List(1, 2, 3, 4, 5).
+** after all most simple way 
+
+	val input = "1 2 3 4 5"                 // Example input string
+	val inputList = input                   // Start with the input string
+  	.split("\\s+")                        // Split into an array of strings: Array("1", "2", "3", "4", "5")
+  	.toList                               // Convert to a List of strings: List("1", "2", "3", "4", "5")
+  	.map(_.toInt)                         // Convert each string to an integer: List(1, 2, 3, 4, 5)
+
 
 
 * Indent of the code is important in scala as well as return 
