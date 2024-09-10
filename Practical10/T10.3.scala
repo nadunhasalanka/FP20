@@ -6,11 +6,15 @@ class Account(n: Double, accountname: String) {
     balance += amount
 
   def withdraw(amount: Double): Unit =
+    if (balance >= amount){
     balance -= amount
+    }
 
   def transfer(amount: Double, account: Account): Unit =
-    this.balance -= amount 
-    account.balance += amount
+    if (this.balance >= amount){
+      this.balance -= amount 
+      account.balance += amount
+    }
 
 
   def print():Unit = 
